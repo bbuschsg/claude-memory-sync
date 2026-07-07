@@ -1,3 +1,42 @@
 # Memory Index
 
 - [Open PO Variance Report](open-po-variance-report.md) — new SG5 PHP report, pending column verify + EIP promotion + menu registration
+- [Never Assume Timezone (Feedback)](feedback_never_assume_timezone.md) — Time displays must come from viewer's PC/browser JS, never a hardcoded zone; IBM i server itself is physically Eastern (not Chicago as existing headers assume)
+- [SG5/EIP Server Environment](project_sg5_server.md) — SeidenPHP (not ZendSvr6); Live/Test schemas, paths, library lists, PHP header template
+- [EIP Menu System](project_sg5_eip_menu.md) — SYPORT/SYURLM/SYROLD/SYPGMO structure, FPID is CHAR, @@phpPath=`/`, SGCUSTRPT portal facts
+- [HarrisData Dev Workflow](project_harrisdata_workflow.md) — SG5 first always, backup before changes, SEQUEL replacement goal, SYPGMO registration
+- [Backup Before Execute (Feedback)](feedback_backup_before_execute.md) — Back up ALL files and DB tables before any script runs; Backup→Verify→Execute always
+- [EIP Custom Menu Structure](project_eip_menu_structure.md) — 5 SG top-level menus × 6 submenus each, placement after Event Calendar
+- [CL Formatting (Feedback)](feedback_cl_formatting.md) — Compact style, 80-char max width, minimal continuation lines
+- [Always Full URL (Feedback)](feedback_always_full_url.md) — Always give complete URL every time a script is mentioned; never just a filename
+- [IBM i SQL No Semicolon (Feedback)](feedback_ibmi_sql_no_semicolon.md) — IBM i DB2 rejects semicolons at end of SQL statements — never add them
+- [Always SGHDSDATA (Feedback)](feedback_always_sghdsdata.md) — SGHDSDATA for business data always; portal/menu tables use S5HDSDATA on SG5, SGHDSDATA on EIP Live
+- [Portal Schema Rules (Feedback)](feedback_portal_schema_rules.md) — Full 9-step portal fix procedure; schema selection; whitelist vs bypass; never touch SGHDSDATA portal tables from SG5 script
+- [Menu Addition SYPORR Rule (Feedback)](feedback_menu_addition_syporr.md) — Every SYPORT/SYURLM addition must include SYPORR inserts for all whitelist-mode roles; 4-part mandatory script structure
+- [EIP CGI Link Patterns](reference_eip_cgi_links.md) — SelectOrder.d2w and SelectMfgOrder.d2w URL patterns; row-index onclick pattern for safe JS links
+- [Shipments Dashboard](project_shipments_dashboard.md) — Built 2026-06-14; between Bookings/Sales in portal; testing 2026-06-16; backups timestamped 20260614_181215
+- [EIP Restore Script](project_eip_restore.md) — EipRestore.php working 2026-06-15; 8-step rebuild; HD_ALL_SG excluded from SYPORR (bypass role); 615W backups confirmed
+- [Customer Service Inquiry](project_cust_service_inquiry.md) — Working 2026-06-16; single search field; SGHDSDATA.OEOUDT join on OUORD/OULINE; OUFLDR numeric (strip decimals in PHP not SQL)
+- [CS Data Integrity Dashboard](project_cs_data_integrity.md) — Built 2026-06-16; 6 SEQUEL queries; SGDINT/OE portal; auto-loads all checks; 30-min auto-refresh
+- [Inventory Data Integrity Dashboard](project_inv_data_integrity.md) — Built 2026-06-16; 2 SEQUEL queries; SGDINT/INVMGMT portal; HDIMST/HDPCLS/HDIPLT/HDIWHS tables
+- [MO Daily Labor Report](project_mo_daily_labor.md) — Built 2026-06-19; SGINQ/MFG portal; CTE SQL on HDMLDM/HDMOHM/HDMWCM/HREMPL; filter by Emp#/MO#/WC; 10-min auto-refresh
+- [Management Screens](project_management_screens.md) — Built 2026-06-25/26; SGMGMT portal; RevenueVsGoal/NewAccountsRevenue/BottomHalfRevenue/CustClassSales5Yr; all use OEORDH invoice formula
+- [Never Assume (Feedback)](feedback_never_assume.md) — Always diagnose with actual DB data first; never assume root cause; write diagnostic script → get results → then fix
+- [SYPORR PRSEL Fix](project_syporr_prsel_fix.md) — PRSEL='Y' required for portal visibility in whitelist mode; PRTSPT is irrelevant; never modify SYURLM; DiagGetMenu.php is the diagnostic tool
+- [sg_portal_landing Security](project_sg_portal_landing_security.md) — SYPGMS SPOP01='N' hides items per user; pgm key on each item; program ID map; how to add new secured items
+- [Reserved Roles — No SG Menus (Feedback)](feedback_reserved_roles.md) — Never add SG custom portals to SYROLM Rsv='Y' roles; use RevertReservedRoles.php to fix; exclude by querying SYROLM in push scripts
+- [Refresh Bar UI Standard (Feedback)](feedback_refresh_bar_ui.md) — Every page with auto-refresh must use this exact bar: ● Live text + progress bar + countdown + last refresh + amber "As of" date badge
+- [Menu Insert Format (Feedback)](feedback_menu_inserts.md) — SYPORT + SYURLM are the two critical menu tables; always use exact CSV column format Bill provides; plain SQL only, one combined script per schema
+- [Countdown Format (Feedback)](feedback_countdown_format.md) — All refresh countdowns: D days HH:MM:SS; omit days/hours if zero; applies to every SG dashboard screen
+- [Filter Bar UI Standard (Feedback)](feedback_filter_bar_ui.md) — Filter bars: filters + Clear button left, italic count center, green Export to Excel button far right (margin-left:auto)
+- [Filters Always Dropdowns (Feedback)](feedback_filters_dropdowns.md) — All filter controls must be dropdowns populated from query data; never free-text inputs
+- [NO EM DASHES EVER (Feedback)](feedback_no_long_dashes.md) — Em dashes ABSOLUTELY PROHIBITED everywhere with zero exceptions; use ` - ` or rewrite
+- [Summary Protocol (Feedback)](feedback_summary_protocol.md) — Always produce inline summary + save to Project Notes folder; append on every change
+- [Column Header White Bold (Feedback)](feedback_colhdr_white_bold.md) — All SG report table `<th>` headers: always bright white (#fff) + bold, use !important to override portal CSS
+- [SG Report Design Standard](reference_sg_report_design.md) — LOCKED 2026-07-01: gray gradient title bar, #2563EB refresh bar, #374151 headers, #EFF6FF row hover, #2563EB links, cyan Back/red Logout/purple Refresh/green Export buttons; browser-local timezone; full color+CSS spec
+- [MO Open Balance Report](project_mo_open_balance.md) — Built 2026-06-30; HDMOHM; Action badges (Check & Verify/Close/Final Tag & Close); Order# and Item# clickable
+- [WP Program Comparison](project_wp_program_comparison.md) — Live 2026-07-01; SGMGMT/CUSTOMER portal; OEORDH/OEORHD/HDCUST; CYMD dates; DHSLPR*DHQSTC/DHORUF sales formula; 2-query order count pattern
+- [Commissions Script Bug](project_commissions_bug.md) — June 2026: slsm 64 got 4% on 4 invoices (should be 3%); script caused it; Bill fixed manually; investigate root cause before August run; script unchanged per Bill
+- [AR Aging Report](project_ar_aging_report.md) — Custom/SG/ARAgingReport.php; standalone page (not SYPORT/SYURLM); credit toggle, Avg Days to Pay from HDCUST.CMT#DY/CMT#IV; redesigned to SG standard 2026-07-06
+- [Bare-URL vs Menu Reports (Feedback)](feedback_bare_url_vs_menu_reports.md) — Don't wrap non-menu-invoked reports in $headInclude/Banner.php portal scaffolding; caused blank-page outage on AR Aging
+- [Custom Tables Use SGOBJ (Feedback)](feedback_custom_tables_sgobj.md) — Any brand-new custom table we create lives in schema SGOBJ, never SGHDSDATA (that's for HarrisData's own data)
