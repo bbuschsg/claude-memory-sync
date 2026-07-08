@@ -1,11 +1,15 @@
 ---
 name: sg-portal-landing-security
-description: "sg_portal_landing.php checks SGHDSDATA.SYPGMS (SPOP01='N') to hide items per user; pgm key maps each item to its program ID"
+description: "sg_portal_landing.php is the shared 2nd-level menu file ($reportMap[portal][cat]) - adding a report is a code edit here, no SYPORT/SYURLM rows needed. Per-user SYPGMS security described below was NOT present as of 2026-07-07 - verify before relying on it."
 metadata: 
   node_type: memory
   type: project
   originSessionId: a03caaf8-d31b-4026-bcee-2d979f2091e5
 ---
+
+**UPDATE 2026-07-07:** Checked both `W:\HarrisData\SG5\Custom\SG\sg_portal_landing.php` and the EIP copy (byte-identical to each other) while adding the Open PO Variance Report - neither contains a `sgCanSee()` function, a `'pgm'` key on any `$reportMap` item, or any `SYPGMS` reference. The security layer below may have been reverted or never fully merged. Treat the "Program ID Map" and "Adding a New Item" steps as unconfirmed until re-verified against the live file.
+
+**Confirmed current mechanism for adding a new report to an existing category:** `$reportMap` is keyed `[portal][cat] => array of ['title','desc','file']`. To add a report, add one array entry under the right portal/cat key - no SYPORT/SYURLM/SYPORR/SYROLD/SYPGMO changes needed for items within an already-registered category (the landing page itself was registered once; see [[project-eip-menu-structure]]). Back up the file in both SG5 and EIP Backup Files before editing (naming convention: `sg_portal_landing_MMDDHHMM.php`), edit SG5 first, confirm with Bill, then mirror the identical edit to the EIP copy. See [[open-po-variance-report]] for a worked example.
 
 # sg_portal_landing.php — Per-Item Security via SYPGMS
 

@@ -1,6 +1,6 @@
 # Memory Index
 
-- [Open PO Variance Report](open-po-variance-report.md) — new SG5 PHP report, pending column verify + EIP promotion + menu registration
+- [Open PO Variance Report](open-po-variance-report.md) — COMPLETE 2026-07-07; live on EIP, menu registered, color bug fixed
 - [Never Assume Timezone (Feedback)](feedback_never_assume_timezone.md) — Time displays must come from viewer's PC/browser JS, never a hardcoded zone; IBM i server itself is physically Eastern (not Chicago as existing headers assume)
 - [SG5/EIP Server Environment](project_sg5_server.md) — SeidenPHP (not ZendSvr6); Live/Test schemas, paths, library lists, PHP header template
 - [EIP Menu System](project_sg5_eip_menu.md) — SYPORT/SYURLM/SYROLD/SYPGMO structure, FPID is CHAR, @@phpPath=`/`, SGCUSTRPT portal facts
@@ -23,7 +23,7 @@
 - [Management Screens](project_management_screens.md) — Built 2026-06-25/26; SGMGMT portal; RevenueVsGoal/NewAccountsRevenue/BottomHalfRevenue/CustClassSales5Yr; all use OEORDH invoice formula
 - [Never Assume (Feedback)](feedback_never_assume.md) — Always diagnose with actual DB data first; never assume root cause; write diagnostic script → get results → then fix
 - [SYPORR PRSEL Fix](project_syporr_prsel_fix.md) — PRSEL='Y' required for portal visibility in whitelist mode; PRTSPT is irrelevant; never modify SYURLM; DiagGetMenu.php is the diagnostic tool
-- [sg_portal_landing Security](project_sg_portal_landing_security.md) — SYPGMS SPOP01='N' hides items per user; pgm key on each item; program ID map; how to add new secured items
+- [sg_portal_landing Menu Mechanism](project_sg_portal_landing_security.md) — $reportMap[portal][cat] drives 2nd-level menus, no SYPORT/SYURLM edit needed; SYPGMS security section is stale/unconfirmed
 - [Reserved Roles — No SG Menus (Feedback)](feedback_reserved_roles.md) — Never add SG custom portals to SYROLM Rsv='Y' roles; use RevertReservedRoles.php to fix; exclude by querying SYROLM in push scripts
 - [Refresh Bar UI Standard (Feedback)](feedback_refresh_bar_ui.md) — Every page with auto-refresh must use this exact bar: ● Live text + progress bar + countdown + last refresh + amber "As of" date badge
 - [Menu Insert Format (Feedback)](feedback_menu_inserts.md) — SYPORT + SYURLM are the two critical menu tables; always use exact CSV column format Bill provides; plain SQL only, one combined script per schema
@@ -40,3 +40,4 @@
 - [AR Aging Report](project_ar_aging_report.md) — Custom/SG/ARAgingReport.php; standalone page (not SYPORT/SYURLM); credit toggle, Avg Days to Pay from HDCUST.CMT#DY/CMT#IV; redesigned to SG standard 2026-07-06
 - [Bare-URL vs Menu Reports (Feedback)](feedback_bare_url_vs_menu_reports.md) — Don't wrap non-menu-invoked reports in $headInclude/Banner.php portal scaffolding; caused blank-page outage on AR Aging
 - [Custom Tables Use SGOBJ (Feedback)](feedback_custom_tables_sgobj.md) — Any brand-new custom table we create lives in schema SGOBJ, never SGHDSDATA (that's for HarrisData's own data)
+- [Variance Color Convention (Feedback)](feedback_variance_color_convention.md) — Variance columns: negative=red, positive=green always; never invert for favorable/unfavorable business logic
