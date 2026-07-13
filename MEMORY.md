@@ -37,7 +37,7 @@
 - [MO Open Balance Report](project_mo_open_balance.md) — Built 2026-06-30; HDMOHM; Action badges (Check & Verify/Close/Final Tag & Close); Order# and Item# clickable
 - [WP Program Comparison](project_wp_program_comparison.md) — Live 2026-07-01; SGMGMT/CUSTOMER portal; OEORDH/OEORHD/HDCUST; CYMD dates; DHSLPR*DHQSTC/DHORUF sales formula; 2-query order count pattern
 - [Commissions Script Bug](project_commissions_bug.md) — June 2026: slsm 64 got 4% on 4 invoices (should be 3%); script caused it; Bill fixed manually; investigate root cause before August run; script unchanged per Bill
-- [AR Aging Report](project_ar_aging_report.md) — Custom/SG/ARAgingReport.php; standalone page (not SYPORT/SYURLM); credit toggle, Avg Days to Pay from HDCUST.CMT#DY/CMT#IV; redesigned to SG standard 2026-07-06
+- [AR Aging Report](project_ar_aging_report.md) — Custom/SG/ARAgingReport.php; standalone page (not SYPORT/SYURLM); TRUE point-in-time aging via ARYPTD (balance=IVIVAM-SUM(YPAMT where YPBDAT<=asof), join IVISEQ; ?asof= reload) 2026-07-13; credit toggle, Avg Days to Pay from HDCUST.CMT#DY/CMT#IV
 - [Bare-URL vs Menu Reports (Feedback)](feedback_bare_url_vs_menu_reports.md) — Don't wrap non-menu-invoked reports in $headInclude/Banner.php portal scaffolding; caused blank-page outage on AR Aging
 - [Custom Tables Use SGOBJ (Feedback)](feedback_custom_tables_sgobj.md) — Any brand-new custom table we create lives in schema SGOBJ, never SGHDSDATA (that's for HarrisData's own data)
 - [Variance Color Convention (Feedback)](feedback_variance_color_convention.md) — Variance columns: negative=red, positive=green always; never invert for favorable/unfavorable business logic
